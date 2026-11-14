@@ -1,0 +1,106 @@
+/* Bureaucracy Meme's page shell: the desk draws the outer frame and title
+   bar; this page draws the same .window / status bar / pane shape the sheet
+   always styled, with colours from kit tokens. */
+
+:root {
+  --ink: var(--kit-ink);
+  --paper: var(--kit-paper);
+  --separator: var(--kit-separator);
+  --shade: var(--kit-shade);
+  --shade-dark: var(--kit-shade-dark);
+  --quiet-panel: var(--kit-surface-secondary);
+  --control-radius: var(--kit-btn-radius);
+  --ui-font: var(--kit-ui-font);
+  --text-font: var(--kit-text-font);
+  --btn-bg: var(--kit-btn-bg);
+  --btn-fg: var(--kit-btn-fg);
+  --btn-border-color: var(--kit-btn-border-color);
+  --btn-radius: var(--kit-btn-radius);
+  --btn-shadow: var(--kit-btn-shadow);
+  --btn-hover-bg: var(--kit-btn-hover-bg);
+  --btn-hover-fg: var(--kit-btn-hover-fg);
+  --touch-primary-min-height: 48px;
+  --z-local-popover: 40;
+
+  /* Same defaults the desk foundation used; kit tokens follow the era. */
+  --bureaucracy-pane-bg: var(--kit-paper);
+  --bureaucracy-surface-bg: var(--kit-paper);
+  --bureaucracy-surface-border: 1px solid var(--kit-ink);
+  --bureaucracy-surface-radius: 0;
+  --bureaucracy-surface-shadow: none;
+  --bureaucracy-ink: var(--kit-ink);
+  --bureaucracy-muted: var(--kit-shade-dark);
+  --bureaucracy-hover-bg: var(--kit-surface-secondary);
+  --bureaucracy-selected-bg: var(--kit-ink);
+  --bureaucracy-selected-fg: var(--kit-paper);
+  --bureaucracy-selected-shadow: none;
+  --bureaucracy-copy-min-height: 328px;
+  --bureaucracy-control-bg: var(--kit-paper);
+  --bureaucracy-control-fg: var(--kit-ink);
+  --bureaucracy-control-border: 1px solid var(--kit-ink);
+  --bureaucracy-thumbnail-border: 1px solid var(--kit-ink);
+  --bureaucracy-thumbnail-filter: grayscale(1) contrast(1.2);
+  --bureaucracy-preview-bg: var(--kit-shade);
+  --bureaucracy-error: var(--kit-ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+:root:not([data-appearance="standalone"]) body.kit-pane {
+  background: transparent;
+}
+
+body {
+  background: var(--kit-window-bg);
+  color: var(--kit-ink);
+  font-family: var(--kit-ui-font);
+  font-size: var(--kit-control-size);
+  -webkit-text-size-adjust: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+:where(#app > .window) {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+:where(#app > .window > .window-pane) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+:where(#app > .window > .details-bar) {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+:where(#app > .window > .details-bar > span) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

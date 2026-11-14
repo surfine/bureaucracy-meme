@@ -1,0 +1,11 @@
+{
+  "name": "bureaucracy-meme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bureaucracy Meme: draft bilingual British-bureaucracy captions and export a PNG.",
+  "license": "MIT",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}

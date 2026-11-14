@@ -1,0 +1,153 @@
+{
+  "id": "bureaucracy-meme",
+  "version": "1.0.0",
+  "protocol": 1,
+  "kit": ">=1 <2",
+  "windows": [
+    {
+      "window": "bureaucracyMeme",
+      "app": "bureaucracyMeme",
+      "entry": "index.html",
+      "titleKey": "bureaucracy_meme_title",
+      "windowClass": "bureaucracy-meme-window",
+      "paneClass": "bureaucracy-meme-pane",
+      "size": {
+        "width": "1180px",
+        "height": "780px"
+      },
+      "capabilities": [
+        "services",
+        "files",
+        "appearance",
+        "snapshot"
+      ],
+      "services": [
+        "bureaucracyMeme.captions",
+        "desk.modelLabel"
+      ],
+      "menus": [
+        {
+          "id": "file",
+          "labelKey": "menu_file",
+          "items": [
+            {
+              "type": "item",
+              "action": "meme-upload",
+              "labelKey": "bureaucracy_meme_upload",
+              "shortcutId": "",
+              "conditionId": "meme-upload"
+            },
+            {
+              "type": "item",
+              "action": "meme-download",
+              "labelKey": "bureaucracy_meme_download",
+              "shortcutId": "",
+              "conditionId": "meme-download"
+            },
+            {
+              "type": "item",
+              "action": "close-active-window",
+              "labelKey": "close",
+              "shortcutId": "close-window",
+              "conditionId": "close-active-window"
+            }
+          ]
+        },
+        {
+          "id": "edit",
+          "labelKey": "menu_edit",
+          "items": [
+            {
+              "type": "item",
+              "action": "undo",
+              "labelKey": "undo",
+              "shortcutId": "undo",
+              "conditionId": "undo"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "type": "item",
+              "action": "cut",
+              "labelKey": "cut",
+              "shortcutId": "cut",
+              "conditionId": "cut"
+            },
+            {
+              "type": "item",
+              "action": "copy",
+              "labelKey": "copy",
+              "shortcutId": "copy",
+              "conditionId": "copy"
+            },
+            {
+              "type": "item",
+              "action": "paste",
+              "labelKey": "paste",
+              "shortcutId": "paste",
+              "conditionId": "paste"
+            },
+            {
+              "type": "item",
+              "action": "clear-edit",
+              "labelKey": "clear",
+              "shortcutId": "",
+              "conditionId": "clear-edit"
+            },
+            {
+              "type": "item",
+              "action": "select-all",
+              "labelKey": "select_all",
+              "shortcutId": "select-all",
+              "conditionId": "select-all"
+            }
+          ]
+        },
+        {
+          "id": "meme",
+          "labelKey": "menu_meme",
+          "items": [
+            {
+              "type": "item",
+              "action": "meme-focus-topic",
+              "labelKey": "bureaucracy_meme_topic",
+              "shortcutId": "",
+              "conditionId": "meme-focus-topic"
+            },
+            {
+              "type": "item",
+              "action": "meme-generate",
+              "labelKey": "bureaucracy_meme_generate",
+              "shortcutId": "",
+              "conditionId": "meme-generate"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "hostMenu": "window"
+        }
+      ]
+    }
+  ],
+  "intents": [],
+  "strings": {
+    "en": {
+      "bureaucracy_meme_title": "British Bureaucracy Meme Generator",
+      "bureaucracy_meme_upload": "Upload Image",
+      "bureaucracy_meme_download": "Download PNG",
+      "bureaucracy_meme_topic": "How shall we pretend everything is normal this time?",
+      "bureaucracy_meme_generate": "Draft captions",
+      "menu_meme": "Meme"
+    },
+    "zh": {
+      "bureaucracy_meme_title": "英式官僚梗图生成器",
+      "bureaucracy_meme_upload": "上传图片",
+      "bureaucracy_meme_download": "下载 PNG",
+      "bureaucracy_meme_topic": "这次我们要如何假装一切正常？",
+      "bureaucracy_meme_generate": "拟几句字幕",
+      "menu_meme": "梗图"
+    }
+  }
+}
