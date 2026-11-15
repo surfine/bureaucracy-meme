@@ -7,7 +7,7 @@
 (function installBureaucracyRuntime(root) {
   "use strict";
 
-  const VERSION = "1.0.0";
+  const VERSION = "1.0.1";
   const strings = () => root.BureaucracyStrings || { en: {}, zh: {} };
   let bridge = null;
   let welcome = null;
@@ -143,11 +143,23 @@
   }
 
   // Desk service: captions, and anything else the manifest lists.
+  //
+  // A model answer is slower than a desk call. The bridge's default wait is
+  // 15 s; six bilingual captions from a small local model can take 25 s or more,
+  // and the frame gave up on a generation that was still running, which the
+  // app could only report as "no working language model". Only the caption
+  // service opts into the longer wait, so a hung desk call still fails fast
+  // everywhere else.
+  const MODEL_SERVICE_TIMEOUT_MS = 240000;
   function service(name, params) {
     if (!bridge) {
       return Promise.resolve({ ok: false, reason: "unavailable" });
     }
-    return bridge.call("service.request", { name: String(name || ""), params: params || {} })
+    const serviceName = String(name || "");
+    const options = serviceName === "bureaucracyMeme.captions"
+      ? { timeout: MODEL_SERVICE_TIMEOUT_MS }
+      : {};
+    return bridge.call("service.request", { name: serviceName, params: params || {} }, options)
       .then((result) => (result && typeof result === "object" ? result : { ok: false, reason: "unavailable" }),
         (error) => ({ ok: false, reason: String(error?.code || error?.message || "unavailable") }));
   }
