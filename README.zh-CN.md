@@ -3,6 +3,12 @@
 一个在浏览器里运行的工具：为原创模板或本机上传的图片拟双语英式官僚梗图字幕，
 再导出 PNG；也可由宿主页面嵌进窗口。
 
+## 截图
+
+在 AI System 6 桌面里实际运行时截取，左为 Classic，右为 Liquid Glass。
+
+<p><img src="screenshots/bureaucracyMeme-classic.png" width="49%" alt="Bureaucracy Meme · Classic"> <img src="screenshots/bureaucracyMeme-liquid-glass.png" width="49%" alt="Bureaucracy Meme · Liquid Glass"></p>
+
 ## 运行页面
 
 ```bash

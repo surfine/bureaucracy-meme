@@ -4,6 +4,12 @@ A browser tool that drafts bilingual British-bureaucracy meme captions for an
 original template or a local upload, then exports a PNG. A host page can embed
 the same files in a frame.
 
+## Screenshots
+
+Captured running inside the AI System 6 desk: Classic on the left, Liquid Glass on the right.
+
+<p><img src="screenshots/bureaucracyMeme-classic.png" width="49%" alt="Bureaucracy Meme · Classic"> <img src="screenshots/bureaucracyMeme-liquid-glass.png" width="49%" alt="Bureaucracy Meme · Liquid Glass"></p>
+
 ## Run the page
 
 ```bash
